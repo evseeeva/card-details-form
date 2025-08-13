@@ -1,0 +1,273 @@
+/* 
+Градиент для галочки
+
+background: -webkit-linear-gradient(180deg, #6448fe, #600594);              
+background: linear-gradient(180deg, #6448fe, #600594); */
+
+* {
+    box-sizing: border-box;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: none;
+}
+
+button {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: "Space Grotesk", sans-serif;
+    color: #21092f;
+    font-weight: 500;
+    font-size: 18px;
+    box-sizing: border-box;
+
+}
+
+main {
+    height: 100vh;
+    max-height: 1080px;
+    background-image: url(images/bg-main-desktop.png);
+    background-size: 35% 100%;
+    background-repeat: no-repeat;
+    padding: 0 40px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    grid-template-rows: auto;
+    align-items: center;
+
+}
+
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 35px;
+    justify-self: end;
+    margin-right: 15px;
+}
+
+.card {
+    width: 445px;
+    height: 240px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 0 15px -10px #000;
+
+    border-radius: 10px;
+    background-image: linear-gradient(135deg, #FEFFFD, #D2D3D8);
+    background-size: cover;
+    background-position: center;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.card--front {
+    background-image: url(images/bg-card-front.png);
+
+}
+
+.card--back {
+    background-image: url(images/bg-card-back.png);
+    margin-left: 100px;
+}
+
+.card--front::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ffffff;
+
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+}
+
+.card--front::before {
+    content: "";
+    display: block;
+
+
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    transform: translateY(-50%);
+}
+
+.card__number {
+    position: absolute;
+    top: 65%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    letter-spacing: 4px;
+}
+
+.card__cardholder-name {
+    position: absolute;
+    bottom: 30px;
+
+}
+
+.card__expire-date {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.card__cvc {
+    position: absolute;
+    top: 45%;
+    right: 55px;
+}
+
+.form-wrapper {
+    width: 390px;
+    margin-left: 100px;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.payment-form__label {
+    width: 100%;
+    display: inline-block;
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.payment-form__input {
+    padding: 15px;
+    width: 100%;
+
+    border-radius: 8px;
+    border: 1px solid #dedddf;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+
+    outline: none;
+}
+
+.payment-form__input:focus:valid {
+    border-color: transparent;
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(90deg, #6448fe, #600594) border-box;
+}
+
+.payment-form__input:invalid:not(:placeholder-shown),
+.payment-form__input:user-invalid {
+    border-color: #ff5252;
+}
+
+.input--invalid {
+    border-color: #ff5252;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #000;
+    border: 1px solid #dedddf;
+    border-radius: 8px;
+}
+
+.validation-message {
+    display: block;
+    margin-top: 5px;
+    color: #ff5252
+}
+
+.payment-form__input::placeholder {
+    color: #b5acbe;
+}
+
+.date-code {
+    display: flex;
+    gap: 20px;
+}
+
+.date-code__input-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    display: inline-block;
+    border: none;
+    padding: 15px;
+    background-color: #21092f;
+    color: #ffffff;
+    border-radius: 8px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    transition: background-image 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, #6448fe, #600594);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.button:hover::before {
+    opacity: 1;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: #6448fe;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease-in;
+}
+
+a:hover {
+    color: #600594;
+}
+
+footer {
+    padding: 20px;
+    /* background-color: #21092f; */
+}
