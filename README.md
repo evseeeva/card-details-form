@@ -4,6 +4,12 @@
 - Validate the form fields as the user fills in the field
 - Reset the form when the user clicks "Confirm"
 
+**Stack** 
+- HTML 5(semantic markup)
+- CSS 3
+- Javascript
+- WAI-ARIA
+  
 **Skills trained in the project** 
 - BEM naming
 - DOM manipulation
